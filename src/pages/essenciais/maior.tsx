@@ -26,7 +26,7 @@ export default function(){
 
     return(
         <Pagina>
-            <Display texto={`N1: ${n1} N2: ${n2}`} textoComplementar="O maior />
+            <Display texto={`N1: ${n1} N2: ${n2}`} textoComplementar={`O maior número é: ${maior}`} />
                 
             <Flex gap={5}>
                 <Botao texto="N1" redondo tamanho="2xl" cor="bg-red-500" onClick={() => setN1(n1 + 1)}/>

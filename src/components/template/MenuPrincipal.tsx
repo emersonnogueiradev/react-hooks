@@ -13,7 +13,8 @@ export default function MenuPrincipal() {
             titulo: "Essenciais",
             aberta: true,
             itens: [
-                {titulo:"Contador",url:"/essenciais/contador",tag:"UseState", icone: <PiListNumbersDuotone />}
+                {titulo:"Contador",url:"/essenciais/contador",tag:"UseState", icone: <PiListNumbersDuotone />},
+                {titulo:"Maior",url:"/essenciais/maior",tag:"UseEffect", icone: <PiListNumbersDuotone />}
 
             ]
         },

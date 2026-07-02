@@ -6,15 +6,24 @@ import MenuPrincipalItem from "./MenuPrincipalItem";
 import MenuPrincipalSecao from "./MenuPrincipalSecao";
 import Flex from "./Flex";
 import { url } from "inspector";
+import Titulo from "./Titulo";
 
 export default function MenuPrincipal() {
     const secoes = [
         {
             titulo: "Essenciais",
-            aberta: true,
+            aberta: false,
             itens: [
                 {titulo:"Contador",url:"/essenciais/contador",tag:"UseState", icone: <PiListNumbersDuotone />},
-                {titulo:"Maior",url:"/essenciais/maior",tag:"UseEffect", icone: <PiListNumbersDuotone />}
+                {titulo:"Maior",url:"/essenciais/maior",tag:"UseEffect", icone: <PiListNumbersDuotone />},
+                {titulo:"Contagem",url:"/essenciais/contagem",tag:"UseEffect", icone: <PiListNumbersDuotone />}
+
+            ]
+        },
+        {
+            titulo: "Personalizados",
+            aberta: true,
+            itens: [
 
             ]
         },

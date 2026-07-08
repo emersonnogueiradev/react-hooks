@@ -13,7 +13,7 @@ export default function(){
 
     let borda;
     if(senha===""){
-        borda = "border-blu-600"
+        borda = "border-blue-600"
     }else if(senhaEhvalida){
         borda = "border-green-600"
     }else if(!senhaEhvalida){

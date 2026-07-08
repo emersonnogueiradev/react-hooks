@@ -7,12 +7,18 @@ import MenuPrincipalSecao from "./MenuPrincipalSecao";
 import Flex from "./Flex";
 import { url } from "inspector";
 import Titulo from "./Titulo";
+import useToggle from "@/data/models/hooks/UseToggle";
+import { MdOutlineMenu } from "react-icons/md";
+import { MdMenuOpen } from "react-icons/md";
+import useTamanhoJanela from "@/data/models/hooks/UseTamanhoJanela";
+import { useEffect } from "react";
+import useBoolean from "@/data/models/hooks/UseBoolean";
 
 export default function MenuPrincipal() {
     const secoes = [
         {
             titulo: "Essenciais",
-            aberta: false,
+            aberta: true,
             itens: [
                 {titulo:"Contador",url:"/essenciais/contador",tag:"UseState", icone: <PiListNumbersDuotone />},
                 {titulo:"Maior",url:"/essenciais/maior",tag:"UseEffect", icone: <PiListNumbersDuotone />},
@@ -31,7 +37,20 @@ export default function MenuPrincipal() {
 
         
     ];
-    const mini = false;
+    const [mini, toggleMini, miniTrue] = useBoolean(false);
+
+    let tamanho = useTamanhoJanela()
+    useEffect(()=>{
+
+        if(tamanho=== "md" || tamanho=== "sm"){
+            miniTrue()
+        }else{
+            //toggleMini(false)
+        }
+        
+
+    },[tamanho])
+
     function renderizarSecoes() {
         return secoes.map((secao: MenuSecao) => (
             <MenuPrincipalSecao key={secao.titulo} titulo={secao.titulo} mini={mini} aberta={secao.aberta}>
@@ -65,6 +84,10 @@ export default function MenuPrincipal() {
         >
             <Flex center className="m-7">
                 {!mini && <Logo />}
+                <div className="cursor-pointer" onClick={toggleMini}>
+
+                    {mini ? <MdOutlineMenu /> : <MdMenuOpen />}
+                </div>
             </Flex>
             <nav className="flex flex-col gap-4 m-7">{renderizarSecoes()}</nav>
         </aside>

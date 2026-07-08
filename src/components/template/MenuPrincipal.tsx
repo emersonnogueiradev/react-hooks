@@ -24,6 +24,7 @@ export default function MenuPrincipal() {
             titulo: "Personalizados",
             aberta: true,
             itens: [
+                {titulo:"Tamanho Janela",url:"/personalizados/tamanhoJanela",tag:"UseEffect", icone: <PiListNumbersDuotone />}
 
             ]
         },

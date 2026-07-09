@@ -34,7 +34,14 @@ export default function MenuPrincipal() {
 
             ]
         },
+        {
+            titulo: "Contexto",
+            aberta: true,
+            itens: [
+                {titulo:"Loja",url:"/contexto/loja",tag:"useContext", icone: <PiListNumbersDuotone />}
 
+            ]
+        }
         
     ];
     const [mini, toggleMini, miniTrue] = useBoolean(false);

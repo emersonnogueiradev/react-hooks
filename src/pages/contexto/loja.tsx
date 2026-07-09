@@ -1,10 +1,38 @@
+import AdicionarProduto from "@/components/loja/AdicionarProduto";
+import Carrinho from "@/components/loja/Carrinho";
+import FinalizarCompra from "@/components/loja/FinalizarCompra";
+import Flex from "@/components/template/Flex";
 import Pagina from "@/components/template/Pagina";
-import { useState } from "react";
+import { createContext, useState } from "react";
+
+export let Contexto = createContext({} as any)
+
+
 
 export default function(){
+    const [carrinho, setCarrinho] = useState<any>([]);
+    const ctx = {carrinho,setCarrinho, total(){  
+        const r =  carrinho.reduce((acc:any, produto:any) => acc + (+produto.preco * +produto.quantidade), 0)
+
+        return r
+    }}
     return(
-        <Pagina titulo="Loja" subtitulo="Compartilhando informações entre componentes">
-            <h1>Loja</h1>
-        </Pagina>
+        <Contexto.Provider value={ctx}>
+            <Pagina titulo="Loja" subtitulo="Compartilhando informações entre componentes">
+                <Flex col gap={4}>
+
+                    <Flex gap={4}>
+                        <AdicionarProduto/>
+                        <FinalizarCompra/>
+                    </Flex>
+                    <Carrinho/>
+
+                </Flex>
+            </Pagina>
+
+
+
+        </Contexto.Provider>
+
     )
 }

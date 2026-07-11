@@ -15,11 +15,11 @@ import { useEffect } from "react";
 import useBoolean from "@/data/models/hooks/UseBoolean";
 
 export default function MenuPrincipal() {
-    const {secoes,mini,toggleMini} = useMenu();
+    const {secoes,mini,toggleMini,alternarSecao} = useMenu();
 
     function renderizarSecoes() {
         return secoes.map((secao: MenuSecao) => (
-            <MenuPrincipalSecao key={secao.titulo} titulo={secao.titulo} mini={mini} aberta={secao.aberta}>
+            <MenuPrincipalSecao key={secao.titulo} titulo={secao.titulo} mini={mini} aberta={secao.aberta} onClick={() => alternarSecao(secao)}>
                 {renderizarItens(secao)}
             </MenuPrincipalSecao>
         ));

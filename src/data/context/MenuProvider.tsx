@@ -4,6 +4,7 @@ import useBoolean from "../models/hooks/UseBoolean";
 import useTamanhoJanela from "../models/hooks/UseTamanhoJanela";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
+import { MenuSecao } from "../models/MenuSecao";
 
 const ContextoMenu = createContext({} as any);
 
@@ -34,6 +35,18 @@ export function MenuProvider(props: any) {
 
     },[router.asPath])
 
+    function alternarSecao(secaoSelecionada: MenuSecao){
+        let novasSecoes = secoes.map((secao: any)=>{
+
+            if(secao.titulo === secaoSelecionada.titulo){
+                return {...secao, aberta: !secao.aberta}
+            }else{
+                return {...secao}
+            }
+        })
+        setSecoes(() => novasSecoes)
+    }
+
     function selecionarItem(url:string){
         let novasSecoes = secoes.map((secao: any)=>{
 
@@ -52,7 +65,7 @@ export function MenuProvider(props: any) {
 
     return (
 
-        <ContextoMenu.Provider value={{secoes,mini,toggleMini}} >
+        <ContextoMenu.Provider value={{secoes,mini,toggleMini,alternarSecao}} >
             {props.children}
         </ContextoMenu.Provider>
     )

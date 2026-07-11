@@ -15,8 +15,7 @@ interface MenuSecaoProps {
 
 export default function MenuSecao(props: MenuSecaoProps) {
     
-    const { titulo, mini } = props;
-    const [aberta, toggleAberta] = useToggle(props.aberta);
+    const { titulo, mini,aberta } = props;
 
 
     return (
@@ -25,7 +24,7 @@ export default function MenuSecao(props: MenuSecaoProps) {
                 flex items-center justify-between
                 text-zinc-400 uppercase font-bold 
                 ${mini && "text-[11px]"} cursor-pointer
-            `} onClick={() => toggleAberta()}>
+            `} onClick={() => props.onClick?.()}>
                 {mini ? titulo : (
                     <>
                         {titulo}

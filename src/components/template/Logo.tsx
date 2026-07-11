@@ -1,6 +1,8 @@
-import { IconFishHook } from "@tabler/icons";
+import { IoLogoReact } from "react-icons/io5";
 import Link from "next/link";
 import Flex from "./Flex";
+import { use } from "react";
+import useTema from "@/data/models/hooks/useTema";
 
 interface LogoProps {
     subtitulo?: string;
@@ -10,17 +12,19 @@ interface LogoProps {
 }
 
 export default function Logo(props: LogoProps) {
+
+    const {corDestaque} = useTema()
     return (
         <Link href="/" className="cursor-pointer">
             <Flex col={props.col} centerCross className={props.className}>
                 <div
                     className={`
                     flex justify-center items-center
-                    bg-blue-500 rounded-lg 
+                    bg-${corDestaque} rounded-lg 
                     ${props.grande ? "w-[150px] h-[150px]" : "w-[50px] h-[50px]"}
                 `}
                 >
-                    <IconFishHook size={props.grande ? 100 : 30} />
+                    <IoLogoReact size={props.grande ? 100 : 30} />
                 </div>
                 <Flex col centerCross gap={0}>
                     <div

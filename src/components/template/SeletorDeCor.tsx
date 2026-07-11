@@ -4,9 +4,9 @@ import Flex from "./Flex"
 
 export default function SeletorDeCor(){
 
-    let { cores } = useTema();
+    let { cores, setCorDestaque } = useTema();
     let listaCores = cores.map((cor:any)=>{
-        return <Botao key={cor} cor={`bg-${cor}`} />
+        return <Botao key={cor} cor={`bg-${cor}`} onClick={()=>{setCorDestaque(cor)}}/>
 
 
     })

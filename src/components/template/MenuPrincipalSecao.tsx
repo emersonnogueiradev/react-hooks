@@ -1,6 +1,9 @@
-import { IconMinus, IconPlus } from "@tabler/icons";
+
+import { GoArrowDownLeft } from "react-icons/go";
+
 import Flex from "./Flex";
 import useToggle from "@/data/models/hooks/UseToggle";
+import { LuMoveUpRight } from "react-icons/lu";
 
 interface MenuSecaoProps {
     titulo: string
@@ -26,7 +29,7 @@ export default function MenuSecao(props: MenuSecaoProps) {
                 {mini ? titulo : (
                     <>
                         {titulo}
-                        {aberta ? <IconMinus size={15} /> : <IconPlus size={15} />}
+                        {aberta ? <LuMoveUpRight size={15} /> : <GoArrowDownLeft size={15} />}
                     </>
                 )}
             </span>

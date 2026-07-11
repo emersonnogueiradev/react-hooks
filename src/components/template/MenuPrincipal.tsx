@@ -1,4 +1,3 @@
-import { PiListNumbersDuotone } from "react-icons/pi";
 import { MenuItem } from "../../data/models/MenuItem";
 import { MenuSecao } from "../../data/models/MenuSecao";
 import Logo from "./Logo";
@@ -8,6 +7,7 @@ import Flex from "./Flex";
 import { url } from "inspector";
 import Titulo from "./Titulo";
 import useToggle from "@/data/models/hooks/UseToggle";
+import useMenu from "@/data/models/hooks/UseMenu";
 import { MdOutlineMenu } from "react-icons/md";
 import { MdMenuOpen } from "react-icons/md";
 import useTamanhoJanela from "@/data/models/hooks/UseTamanhoJanela";
@@ -15,48 +15,7 @@ import { useEffect } from "react";
 import useBoolean from "@/data/models/hooks/UseBoolean";
 
 export default function MenuPrincipal() {
-    const secoes = [
-        {
-            titulo: "Essenciais",
-            aberta: true,
-            itens: [
-                {titulo:"Contador",url:"/essenciais/contador",tag:"UseState", icone: <PiListNumbersDuotone />},
-                {titulo:"Maior",url:"/essenciais/maior",tag:"UseEffect", icone: <PiListNumbersDuotone />},
-                {titulo:"Contagem",url:"/essenciais/contagem",tag:"UseEffect", icone: <PiListNumbersDuotone />}
-
-            ]
-        },
-        {
-            titulo: "Personalizados",
-            aberta: true,
-            itens: [
-                {titulo:"Tamanho Janela",url:"/personalizados/tamanhoJanela",tag:"UseEffect", icone: <PiListNumbersDuotone />}
-
-            ]
-        },
-        {
-            titulo: "Contexto",
-            aberta: true,
-            itens: [
-                {titulo:"Loja",url:"/contexto/loja",tag:"useContext", icone: <PiListNumbersDuotone />}
-
-            ]
-        }
-        
-    ];
-    const [mini, toggleMini, miniTrue] = useBoolean(false);
-
-    let tamanho = useTamanhoJanela()
-    useEffect(()=>{
-
-        if(tamanho=== "md" || tamanho=== "sm"){
-            miniTrue()
-        }else{
-            //toggleMini(false)
-        }
-        
-
-    },[tamanho])
+    const {secoes,mini,toggleMini} = useMenu();
 
     function renderizarSecoes() {
         return secoes.map((secao: MenuSecao) => (
@@ -75,6 +34,7 @@ export default function MenuPrincipal() {
                 tag={item.tag}
                 url={item.url}
                 mini={mini}
+                selecionado={item.selecionado}
             />
         ));
     }

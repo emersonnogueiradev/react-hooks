@@ -27,6 +27,15 @@ export    const secoes = [
                 {titulo:"Loja",url:"/contexto/loja",tag:"useContext", icone: <PiListNumbersDuotone />}
 
             ]
+        },
+
+        {
+            titulo: "Outros",
+            aberta: true,
+            itens: [
+                {titulo:"Memorização",url:"/outros/memorizacao",tag:"useMemo", icone: <PiListNumbersDuotone />}
+
+            ]
         }
         
     ];

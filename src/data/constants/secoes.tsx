@@ -33,7 +33,8 @@ export    const secoes = [
             titulo: "Outros",
             aberta: true,
             itens: [
-                {titulo:"Memorização",url:"/outros/memorizacao",tag:"useMemo", icone: <PiListNumbersDuotone />}
+                {titulo:"Memorização",url:"/outros/memorizacao",tag:"useMemo", icone: <PiListNumbersDuotone />},
+                {titulo:"Memorizando funções",url:"/outros/memorizandoFuncoes",tag:"useCalck", icone: <PiListNumbersDuotone />}
 
             ]
         }

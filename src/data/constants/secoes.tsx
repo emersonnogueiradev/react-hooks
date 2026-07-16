@@ -34,7 +34,8 @@ export    const secoes = [
             aberta: true,
             itens: [
                 {titulo:"Memorização",url:"/outros/memorizacao",tag:"useMemo", icone: <PiListNumbersDuotone />},
-                {titulo:"Memorizando funções",url:"/outros/memorizandoFuncoes",tag:"useCalck", icone: <PiListNumbersDuotone />}
+                {titulo:"Memorizando funções",url:"/outros/memorizandoFuncoes",tag:"useCallback", icone: <PiListNumbersDuotone />},
+                {titulo:"Gerador de Cor",url:"/outros/geradorDeCor",tag:"useEffect", icone: <PiListNumbersDuotone />}
 
             ]
         }
